@@ -1,6 +1,7 @@
 // This file is part of React-Invenio-Deposit
 // Copyright (C) 2020-2021 CERN.
 // Copyright (C) 2020-2021 Northwestern University.
+// Copyright (C) 2021 Graz University of Technology.
 //
 // React-Invenio-Deposit is free software; you can redistribute it and/or modify it
 // under the terms of the MIT License; see LICENSE file for more details.
@@ -9,9 +10,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FastField } from 'formik';
 import _get from 'lodash/get';
-import { Form } from 'semantic-ui-react';
+import { Form, Icon } from 'semantic-ui-react';
 
-import { FieldLabel } from 'react-invenio-forms';
 
 
 export class ResourceTypeField extends Component {
@@ -103,11 +103,10 @@ export class ResourceTypeField extends Component {
         error={this.groupErrors(form.errors, fieldPath)}
         id={fieldPath}
         label={
-          <FieldLabel
-            htmlFor={fieldPath}
-            icon={labelIcon}
-            label={label}
-          />
+          <label htmlFor={fieldPath}>
+          {labelIcon ? <Icon name={labelIcon} /> : null}
+          {label}
+        </label>
         }
         name={fieldPath}
         onChange={handleChange}
