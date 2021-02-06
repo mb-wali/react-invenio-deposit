@@ -1,6 +1,7 @@
 // This file is part of React-Invenio-Deposit
 // Copyright (C) 2021 CERN.
 // Copyright (C) 2021 Northwestern University.
+// Copyright (C) 2021 Graz University of Technology.
 //
 // React-Invenio-Deposit is free software; you can redistribute it and/or modify it
 // under the terms of the MIT License; see LICENSE file for more details.
@@ -50,6 +51,7 @@ class CreatibutorsFieldForm extends Component {
             htmlFor={fieldPath}
             icon={labelIcon}
             label={label}
+            classname="creatibutors-label"
           ></FieldLabel>
           <List>
             {getIn(values, fieldPath, []).map((value, index, array) => {

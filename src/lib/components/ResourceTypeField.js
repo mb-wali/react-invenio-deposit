@@ -10,8 +10,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FastField } from 'formik';
 import _get from 'lodash/get';
-import { Form, Icon } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
+import { FieldLabel } from 'react-invenio-forms';
 
 
 export class ResourceTypeField extends Component {
@@ -103,10 +104,12 @@ export class ResourceTypeField extends Component {
         error={this.groupErrors(form.errors, fieldPath)}
         id={fieldPath}
         label={
-          <label htmlFor={fieldPath}>
-          {labelIcon ? <Icon name={labelIcon} /> : null}
-          {label}
-        </label>
+          <FieldLabel
+            htmlFor={fieldPath}
+            icon={labelIcon}
+            label={label}
+            classname="resource-type-label"
+          />
         }
         name={fieldPath}
         onChange={handleChange}
