@@ -13,6 +13,7 @@ import { Button, Form, List, Icon } from 'semantic-ui-react';
 
 import { FieldLabel } from 'react-invenio-forms';
 import { LicenseModal } from './LicenseModal';
+import { TruncateStrings } from '../TruncateStrings';
 
 export class LicenseField extends Component {
   renderFormField = (props) => {
@@ -35,6 +36,7 @@ export class LicenseField extends Component {
             const key = `${arrayPath}.${indexPath}`;
             const licenseType = value.id ? 'standard' : 'custom';
             const description = getIn(values, `${key}.description`, '');
+            const link = getIn(values, `${key}.link`, '');
             const title = getIn(values, `${key}.title`, '');
             return (
               <List.Item key={key} className="license-listitem">
@@ -65,7 +67,9 @@ export class LicenseField extends Component {
                 <List.Content>
                   <List.Header>{title}</List.Header>
                   {description && (
-                    <List.Description>{description}</List.Description>
+                    <List.Description>
+                      <TruncateStrings texts={description} link={link}></TruncateStrings>
+                     </List.Description>
                   )}
                 </List.Content>
               </List.Item>
